@@ -34,7 +34,7 @@ function CurrentWeather({data}) {
 
                     <div className="parameter-row">
                         <span className="parameter-label">Humidity</span>
-                        <span className="value">{Math.round(data.main.humidity)}g/m</span>
+                        <span className="value">{Math.round(data.main.humidity)} g.m-3</span>
 
                     </div>
 
