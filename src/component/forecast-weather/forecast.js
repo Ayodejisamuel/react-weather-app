@@ -48,7 +48,7 @@ function Forecast({ data }) {
                                 <div>
                                     <div className="daily-details">
                                         <label>Humdity</label>
-                                        <span>{Math.round(item.main.humidity)}g/m</span>
+                                        <span>{Math.round(item.main.humidity)} g.m-3</span>
                                     </div>
 
 
