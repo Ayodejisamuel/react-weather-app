@@ -6,8 +6,14 @@ function Search({ onsearchChange }) {
   const [search, setSearch] = useState(null);
 
   // fetch cities from rapidapi
+
+
   async function loadOptions(inputValue) {
+
+
+    
     const url = 'https://wft-geo-db.p.rapidapi.com/v1/geo';
+    
     const options = {
       method: 'GET',
       headers: {
@@ -18,7 +24,7 @@ function Search({ onsearchChange }) {
 
     
     try {
-      const response = await fetch(`${url}/cities?minPopulation=1000000&namePrefix=${inputValue}`, options);
+      const response = await fetch(`${url}/cities?&namePrefix=${inputValue}`, options);
       const result = await response.json();
 
   
@@ -53,6 +59,8 @@ function handleOnChange(searchData) {
   return (
 
 // To enable page by page display
+
+
     <AsyncPaginate
       placeholder="Search For City Weather"
       debounceTimeout={600}

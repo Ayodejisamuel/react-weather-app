@@ -1,22 +1,28 @@
 import React from "react";
 import { Accordion, AccordionItem, AccordionItemHeading, AccordionItemPanel, AccordionItemButton } from "react-accessible-accordion";
 import "./forecast.css"
+
+
 const dayInAWeek = new Date().getDay()
 const WEEK_DAY = ["Sunday", "Monday", "Tuesday", "Wednessday", "Thursday", "Friday", "Saturday"]
+
 export const currentDay = WEEK_DAY[dayInAWeek]
 
-function Forecast({ data }) {
 
+function Forecast({data}) {
+
+    
     const dayInAWeek = new Date().getDay()
-
     const day = WEEK_DAY.slice(dayInAWeek , WEEK_DAY.length).concat(WEEK_DAY.slice(0, dayInAWeek))
 
 
+    
     return (
         <>
             <label className="title">Daily</label>
-
+            
             <Accordion allowZeroExpanded>
+
                 {data.list.splice(0, 7).map((item, index) => (
                     <AccordionItem key={index}>
                         <AccordionItemHeading>
@@ -29,7 +35,8 @@ function Forecast({ data }) {
                                     <label className="item-description">{item.weather[0].description}</label>
                                     <label className="min-max">{Math.round(item.main.temp_min) - 273}°C  /  {Math.round(item.main.temp_max) - 273}°C</label>
                                 </div>
-                            </AccordionItemButton>
+
+                        </AccordionItemButton>
                         </AccordionItemHeading>
                         <AccordionItemPanel>
                             <div className="daily-details-container">
@@ -45,15 +52,14 @@ function Forecast({ data }) {
                                         <span>{Math.round(item.main.pressure)}hpa</span>
                                     </div>
                                 </div>
+
                                 <div>
                                     <div className="daily-details">
                                         <label>Humdity</label>
                                         <span>{Math.round(item.main.humidity)}g/m</span>
                                     </div>
 
-
-
-                                    <div className="daily-details">
+                                <div className="daily-details">
                                         <label>Wind Speed</label>
                                         <span>{Math.round(item.wind.speed)}m/s</span>
                                     </div>
@@ -80,6 +86,7 @@ function Forecast({ data }) {
                     </AccordionItem>
                 ))}
             </Accordion>
+            
         </>
     );
 }
